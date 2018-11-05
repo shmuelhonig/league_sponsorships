@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+  <div>
+    <form action=# method='post'>
+      <div class='form-group'>
+        <label for='league-name'>League Name:</label>
+        <input id='league-name' type='text' name='name' required/>
+        <label for='latitude'>Latitude:</label>
+        <input id='latitude' type='number' name='latitude' minlength='4' required/>
+        <label for='longitude'>Longitude:</label>
+        <input id='longitude' type='number' name='longitude' minlength='4' required/>
+        <lable for='price'>Price:</lable>
+        <input id='price' type='number' name='price' required/>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
