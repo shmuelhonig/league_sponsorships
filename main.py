@@ -27,5 +27,6 @@ def add_league():
         )
         session.add(newLeague)
         session.commit()
+        return redirect(url_for('add_league'))
     else:
         return render_template('addLeague.html')
