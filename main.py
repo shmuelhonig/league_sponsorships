@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.secret_key = "supersekrit"
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/add-league/', methods=['GET', 'POST'])
 def add_league():
     if request.method == 'POST':
