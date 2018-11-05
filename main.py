@@ -15,5 +15,6 @@ app.secret_key = "supersekrit"
 
 
 @app.route('/')
-def home():
-    return "hello world"
+@app.route('/add-league/')
+def add_league():
+    return render_template('addLeague.html')
