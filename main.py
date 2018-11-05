@@ -15,6 +15,17 @@ app.secret_key = "supersekrit"
 
 
 @app.route('/')
-@app.route('/add-league/')
+@app.route('/add-league/', methods=['GET', 'POST'])
 def add_league():
-    return render_template('addLeague.html')
+    if request.method == 'POST':
+        # create new League instance using form data
+        newLeague = Leagues(
+            name=request.form['name'],
+            latitude=request.form['latitude'],
+            longitude=request.form['longitude'],
+            price=request.form['price']
+        )
+        session.add(newLeague)
+        session.commit()
+    else:
+        return render_template('addLeague.html')
