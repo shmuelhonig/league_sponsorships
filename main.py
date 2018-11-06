@@ -42,7 +42,10 @@ def find_leagues():
     radius = request.args.get('radius', default=0)
     budget = request.args.get('budget')
     # convert location parameter to tuple
-    location_tuple = (location.split(',')[0], location.split(',')[1])
+    try:
+        location_tuple = (location.split(',')[0], location.split(',')[1])
+    except:
+        return "Please enter a valid latitude/longitude pair for location"
     # extract list of leagues from database
     leagues = session.query(Leagues).order_by('price').all()
     # get list of all leagues within given radius
