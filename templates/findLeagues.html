@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+  <div>
+    <span>Search center: {{location}}</span>
+    <span>Radius: {{radius}}</span>
+    <span>Budget: {{budget}}</span>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Price</th>
+      </tr>
+      {% for league in leagues %}
+      <tr>
+        <td>{{league.name}}</td>
+        <td>{{league.latitude}}</td>
+        <td>{{league.longitude}}</td>
+        <td>{{league.price}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+{% endblock %}
