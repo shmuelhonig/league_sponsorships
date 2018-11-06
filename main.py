@@ -43,11 +43,20 @@ def find_leagues():
     # convert location parameter to tuple
     location_tuple = (location.split(',')[0], location.split(',')[1])
     # extract list of leagues from database
-    leagues = session.query(Leagues).all()
+    leagues = session.query(Leagues).order_by('price').all()
     # get list of all leagues within given radius
     nearby_leagues = []
     for league in leagues:
         distance = geodesic((league.latitude, league.longitude), location_tuple).miles
         if distance < float(radius):
             nearby_leagues.append(league)
+    # remove last (most expensive) league if over budget
+    total_price = 0
+    for league in nearby_leagues:
+        total_price = total_price + league.price
+    final_price = total_price
+    while final_price > int(budget):
+        truncated = nearby_leagues.pop()
+        final_price = final_price - truncated.price
+
     return render_template('findLeagues.html', leagues=leagues, location=location, radius=radius, budget=budget, nearby_leagues=nearby_leagues)
