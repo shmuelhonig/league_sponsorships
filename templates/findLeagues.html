@@ -8,10 +8,14 @@
     <span>Budget: {{budget}}</span>
   </div>
   <div>
-      <span>Nearby Leagues:</span><br>
+    <span>Nearby Leagues:</span><br>
+    {% if nearby_leagues %}
     {% for league in nearby_leagues %}
-    <span>{{league.name}}, </span>
+    <span>{{league.name}} </span>
     {% endfor %}
+    {% else %}
+    <span>None</span>
+    {% endif %}
   </div>
   <div>
     <table>
