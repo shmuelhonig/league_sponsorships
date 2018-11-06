@@ -49,4 +49,4 @@ def find_leagues():
         distance = geodesic((league.latitude, league.longitude), location_tuple).miles
         if distance < float(radius):
             nearby_leagues.append(league)
-    return render_template('findLeagues.html', leagues=leagues, location=location, radius=radius, budget=budget)
+    return render_template('findLeagues.html', leagues=leagues, location=location, radius=radius, budget=budget, nearby_leagues=nearby_leagues)

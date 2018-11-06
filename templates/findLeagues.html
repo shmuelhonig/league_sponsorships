@@ -8,6 +8,12 @@
     <span>Budget: {{budget}}</span>
   </div>
   <div>
+      <span>Nearby Leagues:</span><br>
+    {% for league in nearby_leagues %}
+    <span>{{league.name}}, </span>
+    {% endfor %}
+  </div>
+  <div>
     <table>
       <tr>
         <th>Name</th>
