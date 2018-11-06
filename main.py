@@ -38,7 +38,7 @@ def add_league():
 def find_leagues():
     # extract values of query arguments
     location = request.args.get('location')
-    radius = request.args.get('radius')
+    radius = request.args.get('radius', default=0)
     budget = request.args.get('budget')
     # convert location parameter to tuple
     location_tuple = (location.split(',')[0], location.split(',')[1])
