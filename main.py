@@ -34,6 +34,7 @@ def add_league():
     else:
         return render_template('addLeague.html')
 
+
 @app.route('/find-leagues/')
 def find_leagues():
     # extract values of query arguments
@@ -47,7 +48,8 @@ def find_leagues():
     # get list of all leagues within given radius
     nearby_leagues = []
     for league in leagues:
-        distance = geodesic((league.latitude, league.longitude), location_tuple).miles
+        distance = geodesic((league.latitude, league.longitude),
+                            location_tuple).miles
         if distance < float(radius):
             nearby_leagues.append(league)
     # remove last (most expensive) league if over budget
@@ -59,4 +61,11 @@ def find_leagues():
         truncated = nearby_leagues.pop()
         final_price = final_price - truncated.price
 
-    return render_template('findLeagues.html', leagues=leagues, location=location, radius=radius, budget=budget, nearby_leagues=nearby_leagues)
+    return render_template(
+        'findLeagues.html',
+        leagues=leagues,
+        location=location,
+        radius=radius,
+        budget=budget,
+        nearby_leagues=nearby_leagues
+    )
