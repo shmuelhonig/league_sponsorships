@@ -8,13 +8,13 @@
     <span class='mx-3'>Budget: {{budget}}</span>
   </div>
   <div class='container text-center mb-3'>
-    <span>Nearby Leagues:</span><br>
+    <h3>You can sponsor all of these leagues:</h3>
     {% if nearby_leagues %}
     {% for league in nearby_leagues %}
-    <span>{{league.name}} </span>
+    <h6 class='mx-2 display-5'>{{league.name}} </h6>
     {% endfor %}
     {% else %}
-    <span>None</span>
+    <h6>None</h6>
     {% endif %}
   </div>
   <div class='container'>
