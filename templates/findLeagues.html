@@ -2,12 +2,12 @@
 
 {% block content %}
 <section>
-  <div>
+  <div class='container text-center mb-3'>
     <span>Search center: {{location}}</span>
     <span>Radius: {{radius}}</span>
     <span>Budget: {{budget}}</span>
   </div>
-  <div>
+  <div class='container text-center mb-3'>
     <span>Nearby Leagues:</span><br>
     {% if nearby_leagues %}
     {% for league in nearby_leagues %}
@@ -17,8 +17,8 @@
     <span>None</span>
     {% endif %}
   </div>
-  <div>
-    <table>
+  <div class='container'>
+    <table class='table'>
       <tr>
         <th>Name</th>
         <th>Latitude</th>
